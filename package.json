@@ -4,13 +4,18 @@
   "description": "mySql server for capstone project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client-install": "cd client && npm install",
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^4.0.1",
-    "cors": "^2.8.5",
+    "concurrently": "^5.1.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",

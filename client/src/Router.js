@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from 'react-router'
 import cookie from 'cookie'
 import AddUsers from './containers/AddUsers'
 import Login from './containers/Login'
-import Dashboard from './containers/Dashboard'
+import Home from './containers/Home'
 
 const checkAuth = () => {
     const cookies = cookie.parse(document.cookie)
@@ -25,7 +25,7 @@ const ProtectedRoute = ({component: Component, ...rest}) => {
 const Router = () => {
     return (
         <Switch>
-            <Route exact path="/" component={Dashboard} />
+            <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
             <ProtectedRoute path="/addUsers" component={AddUsers}/>
         </Switch>

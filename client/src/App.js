@@ -1,5 +1,5 @@
 import React from "react";
-import Dashboard from "./components/Dashboard";
+import Home from "./components/Home";
 import "./App.css";
 import Router from "./Router";
 import { BrowserRouter } from "react-router-dom";
@@ -10,7 +10,7 @@ function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <Dashboard />
+        <Home />
         <Router />
       </BrowserRouter>
     </Provider>
