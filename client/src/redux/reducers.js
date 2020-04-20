@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 
-const user = (state = null, action) => {
+const player = (state = null, action) => {
     switch (action.type) {
         case 'LOGIN':
             return {
@@ -18,17 +18,17 @@ const user = (state = null, action) => {
     }
 }
 
-const users = (state = [], action) => {
+const players = (state = [], action) => {
     switch (action.type) {
-        case 'ADD_USER':
+        case 'ADD_PLAYER':
             return [ ...state, action.value ]
-        case 'REMOVE_USER':
-            const users = [ ...state ]
-            users.splice(action.value, 1)
-            return users
+        case 'REMOVE_PLAYER':
+            const players = [ ...state ]
+            players.splice(action.value, 1)
+            return players
         default:
             return state
     }
 }
 
-export default combineReducers({ user, users }) 
+export default combineReducers({ player, players }) 

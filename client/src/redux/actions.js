@@ -1,10 +1,10 @@
-export const addUsers = () => {
+export const addPlayers = () => {
     return (dispatch) => {
-        fetch('/users')
+        fetch('/players')
         .then(res => res.json())
         .then(response => {
             const action = {
-                type: 'ADD_USER',
+                type: 'ADD_PLAYER',
                 value: response.Results
             }
             dispatch(action)
@@ -12,21 +12,21 @@ export const addUsers = () => {
     }
 }
 
-export const removeUser = (index) => {
+export const removePlayer = (index) => {
     return {
-        type: 'REMOVE_USER',
+        type: 'REMOVE_PLAYER',
         value: index
     }
 }
 
-export const loginUser = (user) => {
+export const loginPlayer = (player) => {
     return {
         type: 'LOGIN',
-        value: user
+        value: player
     }
 }
 
-export const logoutUser = (username) => {
+export const logoutPlayer = (username) => {
     return {
         type: 'LOGOUT',
         value: username

@@ -29,7 +29,7 @@ class Home extends Component {
                     {document.cookie === "loggedIn=true" ? (null) : (<Link style={{ textDecoration: 'none' }} to="/login">Login</Link>)}
                     </ListItem>
                     <ListItem className="nav-list-item">
-                    {document.cookie === "loggedIn=true" ? (<Link style={{ textDecoration: 'none' }} to="/AddUsers">Add User</Link>) :(null)}
+                    {document.cookie === "loggedIn=true" ? (<Link style={{ textDecoration: 'none' }} to="/AddPlayers">Add Player</Link>) :(null)}
                     </ListItem>
                     <ListItem className="nav-list-item">
                     {document.cookie === "loggedIn=true" ? (<Link style={{ textDecoration: 'none' }} to="/logout" onClick={this.logOut}>Logout</Link>):(null)}

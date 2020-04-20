@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Button, TextField } from '@material-ui/core'
 
 
-class AddUsers extends Component {
+class AddPlayers extends Component {
     state = {
         name: ''
     }
@@ -17,10 +17,10 @@ class AddUsers extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        const newUser = { ...this.state }
-        newUser.id = this.props.newUser + 1
-        this.props.addUsers(newUser)
-        this.props.history.push("/users")
+        const newPlayer = { ...this.state }
+        newPlayer.id = this.props.newPlayer + 1
+        this.props.AddPlayers(newPlayer)
+        this.props.history.push("/players")
     }
 
 
@@ -54,4 +54,4 @@ class AddUsers extends Component {
     }
     
 
-export default AddUsers
+export default AddPlayers

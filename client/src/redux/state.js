@@ -1,4 +1,4 @@
 export default {
-    user: null,
+    player: null,
       username: false
     }

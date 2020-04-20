@@ -20,8 +20,8 @@ class App extends Component {
     e.preventDefault()
     const { history } = this.props
     document.cookie = "loggedIn=true;max-age = 60*1000"
-    this.props.loginUser("loggedin")
-    history.push("/users")
+    this.props.loginPlayer("loggedin")
+    history.push("/players")
   }
 
   render() {

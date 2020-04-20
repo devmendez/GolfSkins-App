@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router'
 import cookie from 'cookie'
-import AddUsers from './containers/AddUsers'
+import AddPlayers from './containers/AddPlayers'
 import Login from './containers/Login'
 import Home from './containers/Home'
 
@@ -27,7 +27,7 @@ const Router = () => {
         <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
-            <ProtectedRoute path="/addUsers" component={AddUsers}/>
+            <ProtectedRoute path="/addPlayers" component={AddPlayers}/>
         </Switch>
     )
 }
