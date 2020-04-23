@@ -4,7 +4,8 @@ import { Button, TextField } from '@material-ui/core'
 
 class AddPlayers extends Component {
     state = {
-        name: ''
+        name: '', 
+        playerList: []
     }
 
     toggleDialog = () => this.setState({ open: !this.state.open })
@@ -15,19 +16,26 @@ class AddPlayers extends Component {
         this.setState(newState)
     }
 
-    handleSubmit = (e) => {
-        e.preventDefault()
-        const newPlayer = { ...this.state }
-        newPlayer.id = this.props.newPlayer + 1
-        this.props.AddPlayers(newPlayer)
-        this.props.history.push("/players")
+    // handleSubmit = (e) => {
+    //     e.preventDefault()
+    //     const newPlayer = { ...this.state }
+    //     newPlayer.id = this.props.newPlayer + 1
+    //     this.props.AddPlayers(newPlayer)
+    //     //this.props.history.push("/Skins")
+    //     this.setState({ playerList: newPlayer })
+    // }
+    handleSubmit = () => {
+        const players = [ ...this.state.playerList ]
+        players.push(this.state.text)
+        this.setState({ playerList: players })
     }
 
 
     componentDidUpdate = (prevProps, prevState) => {
         if (prevState.open !== this.state.open) {
             this.setState({
-                Name: '',
+                //Name: '',
+                playerList: []
             })
         }
     }
@@ -35,9 +43,15 @@ class AddPlayers extends Component {
     render() {
         return (
             <div>
-            <form 
-                onSubmit={this.handleSubmit}
-                style={{ display: 'flex', flexDirection: 'column', width: '300px', alignContent: 'center' }}>
+            <form className="player-form-wrapper" style={{
+            display: 'flex',
+            flexDirection: 'column',
+            width: '250px',
+            margin: 'auto',
+            paddingTop: '100px', 
+            alignContent: 'center',  
+          }}            
+            onSubmit={this.handleSubmit}>            
             <TextField 
                 id="Name" 
                 placeholder="Name" 
@@ -45,8 +59,21 @@ class AddPlayers extends Component {
                 onChange={this.handleTextChange} 
                 required
                 />
-            
-            <Button variant="contained" color="primary" type="submit">SAVE</Button>
+             {
+                this.state.playerList.map(value => {
+                    return <p>{value}</p>
+                })
+            }
+            <Button 
+            onClick={this.handleSubmit}
+            type="submit"
+            className="login-button"
+            variant="contained"
+            color="primary"
+            padding="100px"
+          >
+            ADD PLAYER
+          </Button>
             </form>
         </div>
         )

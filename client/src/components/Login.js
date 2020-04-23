@@ -3,10 +3,11 @@ import { TextField, Button, Container } from '@material-ui/core'
 import { withRouter } from 'react-router-dom'
 
 
-class App extends Component {
+class Login extends Component {
   state = {
     username: "",
-    password: ""
+    password: "", 
+    loggedIn: false
   }
       
 
@@ -21,14 +22,22 @@ class App extends Component {
     const { history } = this.props
     document.cookie = "loggedIn=true;max-age = 60*1000"
     this.props.loginPlayer("loggedin")
-    history.push("/players")
+    history.push("/addplayers")
   }
 
   render() {
     return (
       <div className="App">
         <Container maxWidth="sm">
-          <form className="login-form-wrapper" onSubmit={this.login}>
+          <form className="login-form-wrapper" style={{
+            display: 'flex',
+            flexDirection: 'column',
+            width: '250px',
+            margin: 'auto',
+            paddingTop: '70px', 
+            alignContent: 'center',            
+          }}
+          onSubmit={this.login}>
             <TextField
               onChange={this.handleTextChange}
               value={this.state.username}
@@ -50,7 +59,8 @@ class App extends Component {
               type="submit"
               className="login-button"
               variant="contained"
-              backgroundColor="Gray"
+              color="primary"
+              padding="100px"
             >
             LOGIN
             </Button>
@@ -61,4 +71,4 @@ class App extends Component {
   }
 }
 
-export default withRouter(App)
+export default withRouter(Login)
