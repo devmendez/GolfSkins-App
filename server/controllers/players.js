@@ -3,6 +3,7 @@ const pool = require('../sql/connection')
 const { handleSQLError } = require('../sql/error')
 
 const getAllPlayers = (req, res) => {
+  console.log(res, "req")
   pool.query("SELECT * FROM players", (err, rows) => {
     if (err) return handleSQLError(res, err)
     return res.json(rows);

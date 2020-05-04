@@ -10,17 +10,17 @@ class Connection {
         connectionLimit: 100,
         host: '104.155.155.152',
         user: 'root',
-        password: 'process.env.DB_PASS',
+        password: process.env.DB_PASS,
         database: 'golf'
       }
-
+     
       if (process.env.NODE_ENV === 'production' && process.env.CLOUD_INSTANCE) {
         console.log(`connect socket: ${process.env.CLOUD_INSTANCE}`)
         config.socketPath = `/cloudsql/${process.env.CLOUD_INSTANCE}`
       }
 
       this.pool = mysql.createPool(config)
-
+      
       return this.pool
     }
 

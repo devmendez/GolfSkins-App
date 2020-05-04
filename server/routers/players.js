@@ -3,7 +3,7 @@ const playersController = require('../controllers/players')
 const { authenticate } = require('../middleware')
 const router = express.Router()
 
-router.get('/', authenticate, playersController.getAllPlayers)
+router.get('/', playersController.getAllPlayers)
 
 router.get('/:id', authenticate, playersController.getPlayerById)
 

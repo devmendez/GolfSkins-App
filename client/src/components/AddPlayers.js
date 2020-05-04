@@ -1,84 +1,68 @@
 import React, { Component } from 'react'
-import { Button, TextField } from '@material-ui/core'
+import { TextField, Container } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+
 
 
 class AddPlayers extends Component {
     state = {
-        name: '', 
-        playerList: []
-    }
+      firstName: '',
+      lastName: '',
+      message: null
+  }
+  
+//this.onChange = this.onChange.bind(this);
 
-    toggleDialog = () => this.setState({ open: !this.state.open })
-
-    handleTextChange = (e) => {
-        const newState = { ...this.state }
-        newState[e.target.id] = e.target.value
-        this.setState(newState)
-    }
-
-    // handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     const newPlayer = { ...this.state }
-    //     newPlayer.id = this.props.newPlayer + 1
-    //     this.props.AddPlayers(newPlayer)
-    //     //this.props.history.push("/Skins")
-    //     this.setState({ playerList: newPlayer })
-    // }
-    handleSubmit = () => {
-        const players = [ ...this.state.playerList ]
-        players.push(this.state.text)
-        this.setState({ playerList: players })
-    }
+add = (e) => {
+  e.preventDefault();
+  let { addplayer } = this.props
+     this.setState({message : 'Player added successfully'});
+     //this.props.addPlayer("add")
+     addplayer.push('/Leaderboard');
+  }
 
 
-    componentDidUpdate = (prevProps, prevState) => {
-        if (prevState.open !== this.state.open) {
-            this.setState({
-                //Name: '',
-                playerList: []
-            })
-        }
-    }
+onChange = (e) => {
+  this.setState({ [e.target.name]: e.target.value });
+}
 
-    render() {
-        return (
-            <div>
-            <form className="player-form-wrapper" style={{
-            display: 'flex',
-            flexDirection: 'column',
-            width: '250px',
-            margin: 'auto',
-            paddingTop: '100px', 
-            alignContent: 'center',  
-          }}            
-            onSubmit={this.handleSubmit}>            
-            <TextField 
-                id="Name" 
-                placeholder="Name" 
-                value={this.state.Name} 
-                onChange={this.handleTextChange} 
-                required
-                />
-             {
-                this.state.playerList.map(value => {
-                    return <p>{value}</p>
-                })
-            }
-            <Button 
-            onClick={this.handleSubmit}
-            type="submit"
-            className="login-button"
-            variant="contained"
-            color="primary"
-            padding="100px"
-          >
-            ADD PLAYER
-          </Button>
+
+
+  render() {
+    return (
+        <div>
+            <Container maxWidth="sm">
+            <form style={{ 
+              display: 'flex', 
+              flexDirection: 'column', 
+              width: '300px', 
+              margin: 'auto',
+              paddingTop: '90px', 
+              alignContent: 'center' }}>
+
+               <TextField 
+               placeholder="First Name" 
+               fullWidth margin="normal" 
+               name="firstName" 
+               value={this.state.firstName} 
+               onChange={this.onChange}
+               />
+
+               <TextField 
+               placeholder="Last Name" 
+               fullWidth margin="normal" 
+               name="lastName" 
+               value={this.state.lastName} 
+               onChange={this.onChange}
+               />
+
+               <Button 
+               variant="contained" color="primary" padding="150px" onClick={this.add}>Add Player</Button>
             </form>
+            </Container>
         </div>
-        )
-    }
-    }
-    
+    )
+  }
+}
 
 export default AddPlayers

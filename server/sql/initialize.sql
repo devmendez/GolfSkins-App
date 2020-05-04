@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS players, usersCredentials;
+DROP TABLE IF EXISTS players, playersCredentials;
 
 CREATE TABLE players (
   id INT NOT NULL AUTO_INCREMENT,
@@ -8,7 +8,7 @@ CREATE TABLE players (
 );
 
 
-CREATE TABLE usersCredentials (
+CREATE TABLE playersCredentials (
   id INT NOT NULL AUTO_INCREMENT,
   username VARCHAR(25),
   password VARCHAR(100),
@@ -18,8 +18,7 @@ CREATE TABLE usersCredentials (
 
 INSERT INTO players
 	(first_name, last_name)
-VALUES 
-  
+VALUES   
   ("Devina","Mendez"),
   ("Gilbert","Mendez"),
   ("Will","Ragan"),

@@ -12,8 +12,7 @@ const signup = (req, res) => {
   let sql = "INSERT INTO usersCredentials (username, password) VALUES (?, ?)"
 
   bcrypt.hash(password, saltRounds, function(err, hash) {
-    sql = mysql.format(sql, [ username, hash ])
-  
+    sql = mysql.format(sql, [ username, hash ])  
     pool.query(sql, (err, result) => {
       if (err) {
         if (err.code === 'ER_DUP_ENTRY') return res.status(409).send('Username is taken')

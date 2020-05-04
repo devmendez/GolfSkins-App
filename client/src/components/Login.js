@@ -21,8 +21,9 @@ class Login extends Component {
     e.preventDefault()
     const { history } = this.props
     document.cookie = "loggedIn=true;max-age = 60*1000"
-    this.props.loginPlayer("loggedin")
+    //this.props.loginPlayer("loggedin")
     history.push("/addplayers")
+    console.log("this",this.props)
   }
 
   render() {
@@ -32,7 +33,7 @@ class Login extends Component {
           <form className="login-form-wrapper" style={{
             display: 'flex',
             flexDirection: 'column',
-            width: '250px',
+            width: '300px',
             margin: 'auto',
             paddingTop: '70px', 
             alignContent: 'center',            

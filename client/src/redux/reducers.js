@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 
-const player = (state = null, action) => {
+const user = (state = null, action) => {
     switch (action.type) {
         case 'LOGIN':
             return {
@@ -31,4 +31,5 @@ const players = (state = [], action) => {
     }
 }
 
-export default combineReducers({ player, players }) 
+
+export default combineReducers({ user, players }) 

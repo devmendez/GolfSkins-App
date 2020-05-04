@@ -1,4 +1,3 @@
 export default {
-    player: null
-      
+    player: null      
     }

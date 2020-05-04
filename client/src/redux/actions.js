@@ -19,10 +19,10 @@ export const removePlayer = (index) => {
     }
 }
 
-export const loginPlayer = (player) => {
+export const loginPlayer = (username) => {
     return {
         type: 'LOGIN',
-        value: player
+        value: username
     }
 }
 
@@ -32,3 +32,4 @@ export const logoutPlayer = (username) => {
         value: username
     }
 }
+
