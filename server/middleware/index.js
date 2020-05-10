@@ -18,6 +18,7 @@ const authenticate = (req, res, next) => {
   }
 }
 
+
 module.exports = {
   logger,
   authenticate

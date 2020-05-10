@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { TextField, Button, Container } from '@material-ui/core'
+import { TextField, Button, Card } from '@material-ui/core'
 import { withRouter } from 'react-router-dom'
+import Golfbag from '../images/golfbag.jpg'
 
 
 class Login extends Component {
@@ -22,21 +23,28 @@ class Login extends Component {
     const { history } = this.props
     document.cookie = "loggedIn=true;max-age = 60*1000"
     //this.props.loginPlayer("loggedin")
-    history.push("/addplayers")
-    console.log("this",this.props)
+    history.push("/addplayers") 
   }
 
   render() {
     return (
-      <div className="App">
-        <Container maxWidth="sm">
+      <body className="App">         
+          <img src={Golfbag} alt="golf bag" className="login-background"
+              position="relative"
+              background-position="center"
+              background-size="cover"
+              width="100%"
+              height="100%"
+              z-index="-1"
+              />        
+        <Card maxWidth="sm">
           <form className="login-form-wrapper" style={{
-            display: 'flex',
-            flexDirection: 'column',
-            width: '300px',
-            margin: 'auto',
-            paddingTop: '70px', 
-            alignContent: 'center',            
+            position: "absolute",   
+            variant: "contained", 
+            backgroundColor: "blue", 
+            marginBottom: "50px",
+            right: "0"
+        
           }}
           onSubmit={this.login}>
             <TextField
@@ -55,21 +63,21 @@ class Login extends Component {
               type="password"
             />
             <br/>
-            <Button
+            <Button className="login-button"        
+              variant="contained"
+              backgroundColor="#1b5e20"
+              padding="100px"
               onClick={this.login}
               type="submit"
-              className="login-button"
-              variant="contained"
-              color="primary"
-              padding="100px"
             >
             LOGIN
             </Button>
           </form>
-        </Container>
-      </div>
+        </Card>
+                
+      </body>
     )
-  }
+  } 
 }
 
 export default withRouter(Login)

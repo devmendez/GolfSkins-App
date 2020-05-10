@@ -5,7 +5,7 @@ const router = express.Router()
 
 router.get('/', playersController.getAllPlayers)
 
-router.get('/:id', authenticate, playersController.getPlayerById)
+router.get('/:id', playersController.getPlayerById)
 
 router.post('/', authenticate, playersController.createPlayer)
 
