@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { AppBar, Toolbar, ListItem, List, Typography } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import Golfsunset from "../images/golfsunset.jpg";
+import Login from './Login';
 
 
 
@@ -9,7 +10,7 @@ class Home extends Component {
   logOut = (e) => {
     e.preventDefault();
     document.cookie = "loggedIn=true;max-age=0*0";
-    window.location.replace("/login");
+    window.location.replace("/");
   };
 
   render() {
@@ -22,18 +23,9 @@ class Home extends Component {
             </Typography>
             <List className="nav-list">
               <ListItem className="nav-list-item">
-                {document.cookie === "loggedIn=true" ? null : (
-                  <Link
-                    style={{ textDecoration: "none", color: "white" }}
-                    to="/login"
-                  >
-                    Login
-                  </Link>)}
-              </ListItem>
-              <ListItem className="nav-list-item">
                 {document.cookie === "loggedIn=true" ? (
                   <Link
-                    style={{ textDecoration: "none" }}
+                    style={{ textDecoration: "none", color: "white" }}
                     onClick={this.logOut}
                   >
                     Logout
@@ -51,6 +43,7 @@ class Home extends Component {
               height="690px"
               />        
         </div>
+        <Login />              
       </section>
     );
   }

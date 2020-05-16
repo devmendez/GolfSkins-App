@@ -1,0 +1,131 @@
+.background-image{
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 875px;  
+}
+             
+.login-form{
+    position: absolute;  
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    height: 200px;
+    width: 300px;
+    padding: 10px;
+    background-color: #687C71;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    left: 250px;
+    top: 120px;
+}
+.login-form input{
+  background-color: lightgray;
+  border: none;
+  border-radius: 5px;
+  position: relative;
+  background: transparent;
+}
+
+.login-button{
+    width: 100%;
+}
+
+.player-container{
+    background-color: #96B95B;
+    background-size: cover;
+    height:100%;
+    width: 100%;
+    margin: 0;
+  }
+
+.player-image{
+    position: relative;
+    background-position: right;
+    background-size: cover;
+    width: 50%;
+    height: 100%;  
+}
+
+.form-container{
+    background-color: #1F2343;
+    min-height:500px;
+    width: 400px;
+    margin: 40px auto;
+    position: absolute;
+    top: 150px;
+    right: 200px;
+  }
+
+.addplayer-form input{
+    background-color: #314C10;
+    border: 0; 
+    color: #fff;
+    width: 220px;
+    height: 50px;
+    margin: 20px;
+    padding: 0 20px;
+    font-size: 18px;
+    border-radius: 10px;
+  }
+  .addplayer-form input::placeholder{
+    color: rgba(255,255,255,0.5);
+  }
+  .addplayer-form input:focus{
+    outline: none;
+  }
+  .addplayer-form button{
+    height: 50px;
+    width: 80px;
+    border-radius: 5px;
+    border: 0;
+    background-color: #87A73F; 
+    cursor: pointer;
+  } 
+  .addplayer-form button:focus{
+    outline: none;
+  } 
+
+.list{
+    color: #fff;
+    width: 300px;
+    margin: 20px auto;
+    height: 50px;
+    background-color: #87A73F;
+    border-radius: 5px;
+}
+
+.list p{
+    padding: 10px;
+    position: relative;
+}
+.list p input{
+    background-color: transparent;
+    border: 0;
+    color: #fff;
+    font-size: 18px;
+}
+.list p input:focus{
+    outline: none;
+}
+.list p span{
+    position: absolute;
+    right: 10px;
+}
+.icons{
+    margin: 0 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.start{
+  width: 220px;
+  height: 50px;
+  margin: 10px 80px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 10px;
+  background-color: #87A73F; 
+  cursor: pointer;
+}

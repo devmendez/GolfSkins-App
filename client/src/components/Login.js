@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { TextField, Button, Card } from '@material-ui/core'
 import { withRouter } from 'react-router-dom'
-import Golfbag from '../images/golfbag.jpg'
+import '../css/styles.css'
+
 
 
 class Login extends Component {
@@ -22,30 +23,14 @@ class Login extends Component {
     e.preventDefault()
     const { history } = this.props
     document.cookie = "loggedIn=true;max-age = 60*1000"
-    //this.props.loginPlayer("loggedin")
     history.push("/addplayers") 
   }
 
   render() {
     return (
-      <body className="App">         
-          <img src={Golfbag} alt="golf bag" className="login-background"
-              position="relative"
-              background-position="center"
-              background-size="cover"
-              width="100%"
-              height="100%"
-              z-index="-1"
-              />        
+      <div className="Login">           
         <Card maxWidth="sm">
-          <form className="login-form-wrapper" style={{
-            position: "absolute",   
-            variant: "contained", 
-            backgroundColor: "blue", 
-            marginBottom: "50px",
-            right: "0"
-        
-          }}
+          <form className="login-form" 
           onSubmit={this.login}>
             <TextField
               onChange={this.handleTextChange}
@@ -63,10 +48,10 @@ class Login extends Component {
               type="password"
             />
             <br/>
-            <Button className="login-button"        
+            <Button className="login-button"  
               variant="contained"
-              backgroundColor="#1b5e20"
-              padding="100px"
+              color="white"
+              padding="150px"   
               onClick={this.login}
               type="submit"
             >
@@ -74,8 +59,7 @@ class Login extends Component {
             </Button>
           </form>
         </Card>
-                
-      </body>
+      </div>  
     )
   } 
 }

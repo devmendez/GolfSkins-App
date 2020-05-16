@@ -4,8 +4,9 @@ import cookie from "cookie";
 import AddPlayers from "./components/AddPlayers";
 import Login from "./components/Login";
 import Home from "./components/Home";
-import Leaderboard from "./components/Leaderboard";
+import Scorecard from "./components/Scorecard";
 import Strokes from "./components/Strokes";
+
 
 const checkAuth = () => {
   const cookies = cookie.parse(document.cookie);
@@ -23,13 +24,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
   );
 };
 
-// class component
-// const Router = () => {
-//   state = {
-//     currPlayers: [],
-//   };
 
-  //handleAddPlayer = () => {};
   const Router = () => {
   return (
     <Switch>
@@ -37,9 +32,8 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
         <Route path="/login/" render={() => <Login />}/>
         {/* create a game, consume both skins and strokes, holes component */}
         <ProtectedRoute path="/addPlayers" component={AddPlayers} />
-        <Route path="strokes" component={Strokes}></Route>
-        <Route path="leaderboard" component={Leaderboard}></Route>
-        
+        <Route path="/strokes" component={Strokes}/>
+        <Route path="/scorecard" component={Scorecard} />
     </Switch>
     )
   }
