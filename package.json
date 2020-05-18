@@ -26,6 +26,10 @@
     "material-auto-rotating-carousel": "^3.0.2",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.3",
+    "npm-watch": "^0.6.0",
     "react-swipeable-views": "^0.13.9"
+  },
+  "devDependencies": {
+    "ftp-deploy": "^2.3.7"
   }
 }

@@ -3,34 +3,33 @@ import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
+import Container from '@material-ui/core/Container';
 import Select from '@material-ui/core/Select';
-import PlayerList from './PlayerList'
 import '../css/strokes.css'
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 120,
+    minWidth: 180,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
 }));
 
-const Strokes = (props) => {
 
+const Strokes = (props) => {
+ const classes = useStyles();
  let [count, setCount] = useState(0)  
  const [hole, setHole] = useState([{
    id: 1,
    players: [{
-     name: 'Steve',
+     name: 'Buddy Guy',
      strokes: 0,
    }],
    winner: ''
  }
 ])
-
- const classes = useStyles();
 
  const increment = () => {
     setCount(++count);
@@ -40,8 +39,6 @@ const Strokes = (props) => {
     setCount(--count);
   }
 
-    
-  
   const handleChange = (event) => {
     setHole(event.target.value);
   };
@@ -50,11 +47,12 @@ const Strokes = (props) => {
   return (
     <>
     <div>
+    <Container maxWidth="sm" className="menu-container">
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-simple-select-label">Hole</InputLabel>
+        <InputLabel id="menu-label" style={{ fontSize: "large"}}> Select Hole</InputLabel>
         <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
+          labelId="menu-label"
+          id="menu-simple-select"
           value={hole}
           onChange={handleChange}
         >
@@ -78,19 +76,26 @@ const Strokes = (props) => {
           <MenuItem value={18}>Eighteen</MenuItem>
         </Select>
       </FormControl>
+      </Container>
     </div>
-
-  
-    <div className="counter"> 
-    <span className="player-name">
-      <PlayerList />
-      </span>            
-      <div> <button className="increment" onClick={increment}><h2>+</h2></button></div> 
+    <Container className="counter-main-container" style={{ backgroundColor: "#1F2343", height: "100%", width: "100%", color: "white"}}>
+    <h3>Player: {props.match.params.id}</h3>
+    <Container>
+    <div className="counter-button-container"> 
+      <div> <button className="decrement" onClick={decrement}><h2>-</h2></button></div> 
       <span> <h2>{count}</h2></span>
-      <div> <button className="decrement" onClick={decrement}><h2>-</h2></button></div>
+      <div> <button className="increment" onClick={increment}><h2>+</h2></button></div>
     </div>
+    <div>
+      <button className="save-button"
+      type="submit">
+      Save      
+      </button>
+    </div>
+    </Container>
+    </Container>
     </>
     );
-  
+    
 }
 export default Strokes

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import '../css/styles.css'
 import Golfplayer from '../images/golfplayer.jpg'
 import PlayerList from './PlayerList'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import '../css/styles.css'
 
 library.add(faTrash)
 
@@ -21,6 +21,7 @@ class AddPlayers extends Component {
     this.handleInput = this.handleInput.bind(this);
     this.deletePlayer = this.deletePlayer.bind(this);
     this.editPlayer = this.editPlayer.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
     
 
@@ -60,7 +61,7 @@ class AddPlayers extends Component {
   editPlayer = (text, key) => {
     console.log("players:"+this.state.players);
     const players = this.state.players;
-    players.map(player =>{      
+    players.map(player => {      
       if(player.key===key){
         console.log(player.key +"    "+key)
         player.text= text;
@@ -70,13 +71,10 @@ class AddPlayers extends Component {
       players: players
     }) 
   }
-
+  
   handleSubmit = (e) => {
     e.preventDefault()
-   this.setState({
-      players: this.state.players
-   });
-   
+    this.props.history.push('/strokes')
     }
 
 render(){
@@ -84,7 +82,7 @@ render(){
     <div className="player-container">
       <img src={Golfplayer} alt="golf player" className="player-image"/>   
       <div className="form-container">
-        <form className="addplayer-form" onSubmit={this.addPlayer}>
+        <form className="addplayer-form" onClick={this.addPlayer}>
           <input type="text" placeholder="Add Player" 
               value= {this.state.currentPlayer.text} 
               onChange={this.handleInput}>
@@ -94,7 +92,7 @@ render(){
         <p>{this.state.players.text}</p>              
     
       <PlayerList players={this.state.players} deletePlayer={this.deletePlayer} editPlayer={this.editPlayer} />
-        <button className="start"
+      <button className="start"
           onClick={this.handleSubmit}
           type="submit">
             Start Game
@@ -106,4 +104,4 @@ render(){
 }
 }
 
-export default AddPlayers;
+export default (AddPlayers);

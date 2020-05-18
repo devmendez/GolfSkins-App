@@ -18,7 +18,16 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
   },
+  "watch": {
+    "build": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": "js,jsx"
+    }
+  },
   "scripts": {
+    "watch": "npm-watch",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
