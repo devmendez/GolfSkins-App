@@ -6,8 +6,6 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-// import AddPlayers from './AddPlayers'
-// import Strokes from './Strokes'
 
 
 function createData(hole, currentlow, currentwinner, currentties) {

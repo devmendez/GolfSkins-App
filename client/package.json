@@ -18,16 +18,7 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
   },
-  "watch": {
-    "build": {
-      "patterns": [
-        "src"
-      ],
-      "extensions": "js,jsx"
-    }
-  },
-  "scripts": {
-    "watch": "npm-watch",
+    "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -43,6 +34,7 @@
       "not dead",
       "not op_mini all"
     ],
+    "homepage": "./",
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",

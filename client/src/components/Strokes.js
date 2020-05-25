@@ -5,6 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Container from '@material-ui/core/Container';
 import Select from '@material-ui/core/Select';
+import Scorecard from './Scorecard'
 import '../css/strokes.css'
 
 const useStyles = makeStyles((theme) => ({
@@ -21,15 +22,9 @@ const useStyles = makeStyles((theme) => ({
 const Strokes = (props) => {
  const classes = useStyles();
  let [count, setCount] = useState(0)  
- const [hole, setHole] = useState([{
-   id: 1,
-   players: [{
-     name: 'Buddy Guy',
-     strokes: 0,
-   }],
-   winner: ''
- }
-])
+ const [hole, setHole] = useState()
+ const [player, setPlayer] = useState()
+ 
 
  const increment = () => {
     setCount(++count);
@@ -41,6 +36,10 @@ const Strokes = (props) => {
 
   const handleChange = (event) => {
     setHole(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    setPlayer(event.target.value);
   };
 
    
@@ -78,8 +77,11 @@ const Strokes = (props) => {
       </FormControl>
       </Container>
     </div>
-    <Container className="counter-main-container" style={{ backgroundColor: "#1F2343", height: "100%", width: "100%", color: "white"}}>
-    <h3>Player: {props.match.params.id}</h3>
+    <Container className="counter-main-container" style={{ backgroundColor: "#1F2343", height: "100%", width: "100%", color: "white"}}
+    value={player}
+    onChange={handleSubmit}
+    >
+    <h3>Player:{player}</h3>
     <Container>
     <div className="counter-button-container"> 
       <div> <button className="decrement" onClick={decrement}><h2>-</h2></button></div> 
@@ -93,6 +95,7 @@ const Strokes = (props) => {
       </button>
     </div>
     </Container>
+    <Scorecard />
     </Container>
     </>
     );

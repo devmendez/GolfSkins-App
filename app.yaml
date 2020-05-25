@@ -1,4 +1,23 @@
-runtime: nodejs10
+runtime: nodejs
+env: flex
 
 env_variables:
   CLOUD_INSTANCE: golfskins-app:us-central1:golfskins-app
+
+beta_settings:
+  cloud_sql_instances: golfskins-app:us-central1:golfskins-app
+
+manual_scaling:
+  instances: 1
+
+resources:
+  cpu: .5
+  memory_gb: 0.5
+  disk_size_gb: 10
+
+handlers:
+  - url: /
+    static_files: client/build/index.html
+    upload: client/build/index.html
+  - url: /
+    static_dir: client/build
